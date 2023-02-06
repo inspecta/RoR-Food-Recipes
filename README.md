@@ -106,6 +106,7 @@ Install this project with:
 ```sh
   cd RoR-Food-Recipes
   gem install
+```
 
 ### Usage
 
