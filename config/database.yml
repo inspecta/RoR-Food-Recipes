@@ -17,8 +17,6 @@
 default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 5ignalCh@in
   
 development:
   <<: *default
@@ -28,9 +26,9 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  # username: <%= ENV["DB_USERNAME"] %>
+  username: <%= ENV["DB_USERNAME"] %>
   # The password associated with the postgres role (username).
-  # password: <%= ENV["DB_PASSWORD"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -56,8 +54,8 @@ development:
 test:
   <<: *default
   database: RoR_Food_Recipes_test
-  # username: <%= ENV["DB_USERNAME"] %>
-  # password: <%= ENV["DB_PASSWORD"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,5 +80,5 @@ test:
 production:
   <<: *default
   database: RoR_Food_Recipes_production
-  # username: <%= ENV["DB_USERNAME"] %>
-  # password: <%= ENV["DB_PASSWORD"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
