@@ -32,9 +32,9 @@
 
 # Environment variables
 /config/local_env.yml
+
 # ignored files due to collaboration
 /config/database.yml
 /config/application.rb
-/config/database.yml
-/config/application.rb
+
 /node_modules
