@@ -7,7 +7,7 @@
 # On macOS with MacPorts:
 #   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
 # On Windows:
-# gem install pg
+#   gem install pg
 #       Choose the win32 build.
 #       Install PostgreSQL and put its /bin directory on your path.
 #
@@ -16,8 +16,11 @@
 #
 default: &default
   adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  
+
 development:
   <<: *default
   database: RoR_Food_Recipes_development
@@ -26,9 +29,10 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: <%= ENV["DB_USERNAME"] %>
+  #username: RoR_Food_Recipes
+
   # The password associated with the postgres role (username).
-  password: <%= ENV["DB_PASSWORD"] %>
+  #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -54,8 +58,6 @@ development:
 test:
   <<: *default
   database: RoR_Food_Recipes_test
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,5 +82,5 @@ test:
 production:
   <<: *default
   database: RoR_Food_Recipes_production
-  username: <%= ENV["DB_USERNAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
+  username: RoR_Food_Recipes
+  password: <%= ENV["ROR_FOOD_RECIPES_DATABASE_PASSWORD"] %>
