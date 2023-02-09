@@ -9,8 +9,9 @@
         <div class="">
           <div>
             <%= recipe.name %>
-            <% puts @recipe %>
-            <%= button_to "Destroy this recipe", recipe, method: :delete %>
+            <% if can? :delete, recipe %>
+              <%= button_to "Destroy this recipe", recipe, method: :delete %>
+            <% end %>
             </div>
           <div>
             <p><%= recipe.description %></p>
