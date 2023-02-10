@@ -1,0 +1,27 @@
+<div>
+  <h1>Recipes</h1>
+
+  <div id="recipes">
+    <% if @recipes.empty? %>
+      <p class="">No recipes available! </p>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <div class="">
+          <div>
+            <%= recipe.name %>
+            <% if can? :delete, recipe %>
+              <%= button_to "Destroy this recipe", recipe, method: :delete %>
+            <% end %>
+            </div>
+          <div>
+            <p><%= recipe.description %></p>
+          </div>
+          <p>
+            <%= link_to "View Recipe", recipe %>
+          </p>
+        <div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to "Add Recipe", new_recipe_path %>
+</div>
