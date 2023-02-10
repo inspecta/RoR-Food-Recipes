@@ -1,7 +1,8 @@
 class Recipe < ApplicationRecord
   attr_accessor :public
+
   before_save :set_public
-  
+
   belongs_to :user, foreign_key: :user_id
   has_many :recipe_foods, dependent: :destroy
 
@@ -16,5 +17,4 @@ class Recipe < ApplicationRecord
   def set_public
     self.public ||= false
   end
-  
 end

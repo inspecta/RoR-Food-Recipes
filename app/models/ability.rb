@@ -1,10 +1,7 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     # Case of a guest user
     user ||= User.new
 
@@ -17,6 +14,5 @@ class Ability
 
     # Show public recipe to owner also
     # can :show, Recipe, user_id: user.id
-
   end
 end
